@@ -103,3 +103,16 @@ if (localStorage.getItem("theme") === "light_theme") {
   document.body.classList.remove("light_theme");
   document.body.classList.add("dark_theme");
 }
+// Contoh di App.js
+import React from 'react';
+import { app, analytics } from './firebase';
+
+function App() {
+    return (
+        <div>
+            <h1>Selamat datang di Aplikasi Firebase</h1>
+        </div>
+    );
+}
+
+export default App;
