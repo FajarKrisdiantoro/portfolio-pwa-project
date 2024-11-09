@@ -106,13 +106,12 @@ if (localStorage.getItem("theme") === "light_theme") {
 
 // Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAQDMo-nCTNjYcb6oKI4LoJf5UarlyE3U0",
-  authDomain: "fajarportfolio-49b03.firebaseapp.com",
-  projectId: "fajarportfolio-49b03",
-  storageBucket: "fajarportfolio-49b03.firebasestorage.app",
-  messagingSenderId: "220469848492",
-  appId: "1:220469848492:web:03461dd9eb84a3a89d3209",
-  measurementId: "G-N3JP2HCLJY"
+  apiKey: "AIzaSyBwNJqVJRs5R921h12ZKa8bYpPuZDcUJgw",
+  authDomain: "portfolio-fajar.firebaseapp.com",
+  projectId: "portfolio-fajar",
+  storageBucket: "portfolio-fajar.firebasestorage.app",
+  messagingSenderId: "828821200780",
+  appId: "1:828821200780:web:25f555b339eb34f04c40a9",
 };
 
 // Initialize Firebase
