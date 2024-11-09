@@ -118,3 +118,24 @@ const firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
+
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/firebase-messaging-sw.js')
+      .then((registration) => {
+          console.log('Firebase Messaging Service Worker registered:', registration);
+      })
+      .catch((error) => {
+          console.log('Service Worker registration failed:', error);
+      });
+}
+
+import { requestForToken, saveTokenToFirestore } from './firebase.js';
+
+document.getElementById('subscribe-btn').addEventListener('click', async () => {
+    const token = await requestForToken();
+    const userId = prompt("Enter your username:");
+
+    if (token) {
+        await saveTokenToFirestore(userId, token);
+    }
+});
