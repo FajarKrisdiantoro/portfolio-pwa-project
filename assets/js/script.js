@@ -105,6 +105,10 @@ if (localStorage.getItem("theme") === "light_theme") {
 }
 
 // Firebase configuration
+import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
+
 const firebaseConfig = {
   apiKey: "AIzaSyBwNJqVJRs5R921h12ZKa8bYpPuZDcUJgw",
   authDomain: "portfolio-fajar.firebaseapp.com",
@@ -113,6 +117,10 @@ const firebaseConfig = {
   messagingSenderId: "828821200780",
   appId: "1:828821200780:web:25f555b339eb34f04c40a9",
 };
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
