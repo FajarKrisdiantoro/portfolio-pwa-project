@@ -1,6 +1,6 @@
-import { initializeApp } from 'firebase/app';
-import { getMessaging, getToken, onMessage } from 'firebase/messaging';
-import { getFirestore, doc, setDoc } from 'firebase/firestore';
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+  import { getAuth } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
+  import { getFirestore } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 const firebaseConfig = {
     apiKey: "AIzaSyBwNJqVJRs5R921h12ZKa8bYpPuZDcUJgw",
   authDomain: "portfolio-fajar.firebaseapp.com",
