@@ -1,24 +1,21 @@
-importScripts('https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js');
-importScripts('https://www.gstatic.com/firebasejs/11.0.1/firebase-messaging.js');
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
 
-// Inisialisasi Firebase di Service Worker
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-    apiKey: "AIzaSyAQDMo-nCTNjYcb6oKI4LoJf5UarlyE3U0",
+  apiKey: "AIzaSyAQDMo-nCTNjYcb6oKI4LoJf5UarlyE3U0",
   authDomain: "fajarportfolio-49b03.firebaseapp.com",
   projectId: "fajarportfolio-49b03",
   storageBucket: "fajarportfolio-49b03.firebasestorage.app",
   messagingSenderId: "220469848492",
   appId: "1:220469848492:web:03461dd9eb84a3a89d3209",
+  measurementId: "G-N3JP2HCLJY"
 };
 
-firebase.initializeApp(firebaseConfig);
-const messaging = firebase.messaging();
-
-// Handler untuk menerima push notifikasi
-messaging.onBackgroundMessage((payload) => {
-    console.log('Pesan latar belakang diterima:', payload);
-    self.registration.showNotification(payload.notification.title, {
-        body: payload.notification.body,
-        icon: '/icon.png'
-    });
-});
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
