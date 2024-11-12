@@ -189,7 +189,7 @@ async function requestPermission() {
 // Panggil fungsi saat pengguna berlangganan
 requestPermission();
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/firebase-messaging-sw.js')
+  navigator.serviceWorker.register('/firebase-messaging.js')
       .then((registration) => {
           console.log('Service Worker terdaftar:', registration);
           messaging.useServiceWorker(registration);
