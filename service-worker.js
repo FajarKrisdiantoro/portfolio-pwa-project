@@ -70,3 +70,51 @@ self.addEventListener('fetch', event => {
       })
   );
 });
+
+// Fungsi untuk mengambil semua data langganan dari IndexedDB
+function getAllSubscriptions() {
+  return new Promise((resolve, reject) => {
+      const request = indexedDB.open('pushSubscriptionDB', 1);
+
+      request.onsuccess = (event) => {
+          const db = event.target.result;
+          const transaction = db.transaction('subscriptions', 'readonly');
+          const store = transaction.objectStore('subscriptions');
+
+          const data = [];
+          const cursorRequest = store.openCursor();
+
+          cursorRequest.onsuccess = (event) => {
+              const cursor = event.target.result;
+              if (cursor) {
+                  data.push(cursor.value);
+                  cursor.continue();
+              } else {
+                  resolve(data);
+              }
+          };
+
+          cursorRequest.onerror = (event) => {
+              reject(event.target.error);
+          };
+      };
+
+      request.onerror = (event) => {
+          reject(event.target.error);
+      };
+  });
+}
+
+// Contoh penggunaan di service worker
+self.addEventListener('push', async (event) => {
+  const subscriptions = await getAllSubscriptions();
+  console.log('Data langganan:', subscriptions);
+
+  const title = 'Notifikasi Baru!';
+  const options = {
+      body: 'Anda menerima push notifikasi.',
+      icon: '/icon.png',
+  };
+
+  event.waitUntil(self.registration.showNotification(title, options));
+});
