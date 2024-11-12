@@ -889,12 +889,6 @@ Hi! I’m Fajar Krisdiantoro. I work in a printing business, offer phone repair 
 
 
 
-
-
-  <!-- 
-    - custom js link
-  -->
-  <script type="module" src="script.js"></script>
   <script type="module">
     // Import the functions you need from the SDKs you need
     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
@@ -910,10 +904,16 @@ Hi! I’m Fajar Krisdiantoro. I work in a printing business, offer phone repair 
       appId: "1:220469848492:web:03461dd9eb84a3a89d3209",
       measurementId: "G-N3JP2HCLJY"
     };
-
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
     const analytics = getAnalytics(app);
+  </script>
+
+  <!-- 
+    - custom js link
+  -->
+  <script type="module" src="script.js"></script>
+  
   <!-- 
     - ionicon link
   -->
