@@ -90,9 +90,7 @@ themeToggleBtn.addEventListener("click", function () {
 
 });
 
-/**
- * check & apply last time selected theme from localStorage
- */
+
 
 if (localStorage.getItem("theme") === "light_theme") {
   themeToggleBtn.classList.add("active");
